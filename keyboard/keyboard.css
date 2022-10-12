@@ -92,17 +92,23 @@
     width: 100%;
   }
 
+  .keyboard__key{
+    margin: 2px;
+    /* width: 38px; */
+    /* height: 70px; */
+    font-size: 1.3rem;
+  }
+
   .keyboard__key i{
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .keyboard__keys{
     width: 100%;
-    min-height: 100%;
   }
 
   .caps{
-    font-size: 0.8rem; 
+    font-size: 1rem; 
   }
 
   .keyboard__key--wide {
