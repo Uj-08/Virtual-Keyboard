@@ -124,7 +124,7 @@ const Keyboard = {
           break;
 
         case "shift":
-          keyElement.classList.add("keyboard__key--wide");
+          keyElement.classList.add("keyboard__key--wide", "shift");
           keyElement.innerHTML = createIconHTML("expand_less");
   
           keyElement.addEventListener("click", () => {
@@ -146,7 +146,7 @@ const Keyboard = {
           break;
 
         case "done":
-          keyElement.classList.add("keyboard__key--wide", "keyboard__key--dark");
+          keyElement.classList.add("keyboard__key--wide", "keyboard__key--dark", "keyboard__key", "done");
           keyElement.innerHTML = createIconHTML("check_circle");
   
           keyElement.addEventListener("click", () => {
