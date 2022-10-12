@@ -13,6 +13,7 @@ const Keyboard = {
   properties: {
     value: "",
     capsLock: false,
+    shift: false,
   },
 
   init() {
@@ -21,7 +22,7 @@ const Keyboard = {
     this.elements.keysContainer = document.createElement("div");
 
     // Setup main elements
-    this.elements.main.classList.add("keyboard", "keyboard--hidden");
+    this.elements.main.classList.add("keyboard", "1keyboard--hidden");
     this.elements.keysContainer.classList.add("keyboard__keys");
     this.elements.keysContainer.appendChild(this._createKeys());
 
@@ -46,10 +47,18 @@ const Keyboard = {
     const fragment = document.createDocumentFragment();
     const keyLayout = [
       "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "backspace",
-      "tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]","|",
+      "tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]","\\",
       "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "enter",
-      "shift" ,"z", "x", "c", "v", "b", "n", "m", ",", ".", "?","done"
+      "shift" ,"z", "x", "c", "v", "b", "n", "m", ",", ".", "/","done"
       , "space"
+    ];
+
+    const symbolLayout = [
+      "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "",
+      "", "", "", "", "", "", "", "", "", "", "", "{", "}","|",
+      "", "", "", "", "", "", "", "", "", "", ":", '"', "",
+      "" ,"", "", "", "", "", "", "", "<", ">", "?",""
+      , ""
     ];
 
     // Create HTML for icon
@@ -58,6 +67,7 @@ const Keyboard = {
     }
 
     keyLayout.forEach(key => {
+      // console.log(keyLayout.indexOf(key))
       const keyElement = document.createElement("button");
       const insertLineBreak = ["backspace", "|", "enter", "done"].indexOf(key) !== -1;
 
@@ -118,8 +128,8 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("expand_less");
   
           keyElement.addEventListener("click", () => {
-            this.properties.value += "\n";
-            this._triggerEvents("oninput");
+            this.properties.shift = !this.properties.shift;
+            this.Shift();
           });
   
           break;
@@ -150,8 +160,28 @@ const Keyboard = {
           keyElement.textContent = key.toLowerCase();
 
           keyElement.addEventListener("click", () => {
-            this.properties.value += this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
+            // this.properties.value += this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
+            if(this.properties.shift){
+              if(!(symbolLayout[keyLayout.indexOf(key)]==="")){
+                this.properties.value += symbolLayout[keyLayout.indexOf(key)];
+              }
+              else{
+                this.properties.value += key.toUpperCase();
+              }
+              this.properties.shift = false;
+              this.Shift()
+            }
+            else if(this.properties.capsLock){
+              this.properties.value += key.toUpperCase();
+            }
+            else{
+              this.properties.value += key;
+            }
+
             this._triggerEvents("oninput");
+            // if(this.properties.shift){
+            //   this.properties.shift = false;
+            // }
           });
         }
 
@@ -170,6 +200,47 @@ const Keyboard = {
   _triggerEvents(handlerName) {
     if(typeof this.eventHandlers[handlerName] == "function" ){
       this.eventHandlers[handlerName](this.properties.value);
+    }
+  },
+
+  Shift(){
+    const symbolLayout = [
+      "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "+", "",
+      "", "", "", "", "", "", "", "", "", "", "", "{", "}","|",
+      "", "", "", "", "", "", "", "", "", "", ":", '"', "",
+      "" ,"", "", "", "", "", "", "", "<", ">", "?",""
+      , ""
+    ];
+
+    const keyLayout = [
+      "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=", "backspace",
+      "tab", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]","\\",
+      "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'", "enter",
+      "shift" ,"z", "x", "c", "v", "b", "n", "m", ",", ".", "/","done"
+      , "space"
+    ];
+
+    const icons = [
+      "swap_horiz", "backspace", "keyboard_return", "expand_less", "check_circle", "space_bar", "CAPS"
+    ]
+  
+    const keyArray = Array.from(this.elements.keys);
+    // console.log(keyArray[0].textContent)
+    // console.log(this.elements.keys[0].textContent)
+
+    for(key of keyArray){
+      // console.log(key.textContent)
+      // console.log(icons.some( icon => icon == key.textContent ))
+
+      if (!(symbolLayout[keyArray.indexOf(key)] === "")) {
+        key.textContent = this.properties.shift ? symbolLayout[keyArray.indexOf(key)] : keyLayout[keyArray.indexOf(key)];
+        // console.log(this.elements.keys[keyArray.indexOf(key)].textContent)
+        }
+
+      else if( !icons.includes(key.textContent) ) {
+        key.textContent = this.properties.shift ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+      }
+
     }
   },
 
