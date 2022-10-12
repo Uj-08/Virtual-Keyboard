@@ -90,10 +90,9 @@ const Keyboard = {
             break;
 
         case "caps":
-          keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+          keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable", "caps");
           keyElement.innerText = "CAPS";
           const blank = document.createElement("div");
-          blank.classList.add("dp-n")
           keyElement.appendChild(blank);
 
           keyElement.addEventListener("click", () => {
