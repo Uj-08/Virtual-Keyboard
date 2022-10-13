@@ -21,9 +21,8 @@ body{
   /* background-color: green; */
   /* width: 100%; */
   height: auto;
-  padding: 1rem;
+  /* padding: 0.1rem; */
   margin: 1rem;
-
 }
 
 .form{
@@ -35,10 +34,10 @@ body{
   width: min-content;
   /* background-color: rgba(240, 255, 255, 0.409); */
   background: rgba(251, 251, 251, 0.3);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3.7px);
--webkit-backdrop-filter: blur(3.7px);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.7px);
+  -webkit-backdrop-filter: blur(3.7px);
   margin: auto;
   padding: 1rem;
   border-radius: 0.3rem;
@@ -57,7 +56,7 @@ label{
 .form div {
   /* width: fit-content; */
   /* background-color: red; */
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 3.5rem;
   width: 20rem;
   display: flex;
   flex-direction: column;
@@ -98,6 +97,13 @@ label{
   filter: invert(0);
 }
 
+p{
+  font-size: 0.75rem;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 1px;
+}
+
 @media (max-width:530px) {
 
   .form-area{
@@ -107,7 +113,7 @@ label{
 
   .form div{
     width: 14rem;
-    height: 3.9rem;
+    height: 3.3rem;
   }
 
   label{
