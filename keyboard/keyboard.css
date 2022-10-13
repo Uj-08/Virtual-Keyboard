@@ -120,9 +120,9 @@
     padding: 0.5rem;
   }
 
-  .keyboard__keys{
+  /* .keyboard__keys{
 
-  }
+  } */
 
   .keyboard__key--wide {
     min-width: 25px;
