@@ -112,7 +112,6 @@
 @media (max-width: 700px){
   .keyboard{
     width: 100%;
-    background: transparent;
   }
 
   .keyboard__key{

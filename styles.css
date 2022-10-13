@@ -45,6 +45,7 @@ label{
   /* font-weight: bold; */
   font-size: 0.9rem;
   font-family: 'Poppins', sans-serif;
+  color: rgb(55, 55, 55);
 
 }
 
@@ -58,6 +59,7 @@ label{
 }
 
 .form-input{
+  color: rgb(55, 55, 55);
   font-family: 'Roboto', sans-serif;
   border: none;
   border-radius: 0.3rem;
