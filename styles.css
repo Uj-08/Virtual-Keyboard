@@ -50,7 +50,7 @@ label{
 }
 
 .form div {
-  width: fit-content;
+  /* width: fit-content; */
   /* background-color: red; */
   padding: 0.5rem 2rem;
   width: 20rem;
@@ -59,7 +59,9 @@ label{
 }
 
 .form-input{
-  color: rgb(55, 55, 55);
+  outline: none;
+  color: rgb(22, 22, 22);
+  background-color: rgb(240, 240, 240);
   font-family: 'Roboto', sans-serif;
   border: none;
   border-radius: 0.3rem;
@@ -67,6 +69,8 @@ label{
   /* text-align: center; */
   width: 100%;
   height: 4rem;
+  font-size: 1.2rem;
+  border: 2px solid #8BC6EC;
 }
 
 .form-button{
@@ -80,10 +84,34 @@ label{
   align-self: center;
   margin-left: 1rem;
   width: 100%;
+  background-color: rgb(230, 230, 230);
   filter: invert(1);
   transition: filter 0.4s ease-in-out;
 }
 
 .form-button:hover{
   filter: invert(0);
+}
+
+@media (max-width:530px) {
+
+  .form-area{
+    padding: 0;
+    margin-top: 5rem;
+  }
+
+  .form div{
+    width: 14rem;
+    height: 3.9rem;
+  }
+
+  label{
+    font-size: 0.8rem;
+  }
+
+  .form-input{
+    width: 100%;
+  }
+
+  
 }
