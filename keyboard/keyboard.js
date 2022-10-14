@@ -66,10 +66,15 @@ const Keyboard = {
       return `<i class="material-icons">${icon_name}</i>`
     }
 
+    // Create audio
+    const audio = new Audio();
+    audio.src = "./mouseClick.mp3";
+    
     keyLayout.forEach(key => {
       // console.log(keyLayout.indexOf(key))
       const keyElement = document.createElement("button");
       const insertLineBreak = ["backspace", "|", "enter", "done"].indexOf(key) !== -1;
+      
 
       // Add attributes/classes
       keyElement.setAttribute("type", "button");
@@ -158,6 +163,8 @@ const Keyboard = {
 
         default:
           keyElement.textContent = key.toLowerCase();
+          
+          keyElement.setAttribute("onclick", "new Audio('./mouseClick.mp3').play()");
 
           keyElement.addEventListener("click", () => {
             // this.properties.value += this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
