@@ -127,7 +127,7 @@ p{
 
 @media (max-width:430px) {
   .form div{
-    width: 10rem;
+    width: 15rem;
     height: 3.3rem;
     padding: 0;
     overflow: hidden;
