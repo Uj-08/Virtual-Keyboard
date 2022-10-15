@@ -2,12 +2,34 @@
   width: 30rem;
   height: 10rem;
   display: block;
-  margin: auto;
-  border: 2px solid black;
+  margin: 5rem auto;
+  /* border: 2px solid black; */
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(55, 55, 55, 0.822);
+  font-family: 'Poppins', sans-serif;
+  padding: 1rem;
+}
+
+.email{
+  border-top : 2px solid rgba(255, 255, 255, 0.309) ;
+  padding-top: 1rem;
+}
+
+@media (max-width: 540px) {
+  .display-container{
+    width: 25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .display-container{
+    width: 15rem;
+    font-size: 0.8rem;
+  }
 }
