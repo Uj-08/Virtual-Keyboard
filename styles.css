@@ -145,4 +145,7 @@ p{
       letter-spacing: normal;
     }
 
+    .form-input{
+      font-size: 0.9rem;
+    }
 }
