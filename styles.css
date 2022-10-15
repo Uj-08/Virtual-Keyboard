@@ -100,12 +100,12 @@ label{
   filter: invert(0);
 }
 
-p{
+/* p{
   font-size: 0.75rem;
   font-family: 'Roboto', sans-serif;
   color: rgba(255, 255, 255, 0.7);
   letter-spacing: 1px;
-}
+} */
 
 @media (max-width:530px) {
 
@@ -140,10 +140,10 @@ p{
       font-size: 0.7rem;
     }
     
-    p{
+    /* p{
       font-size: 0.5rem;
       letter-spacing: normal;
-    }
+    } */
 
     .form-input{
       font-size: 0.9rem;
