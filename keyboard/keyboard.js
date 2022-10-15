@@ -73,7 +73,7 @@ const Keyboard = {
 
     colorContainer.style.display = "flex"
     colorContainer.style.justifyContent = "space-evenly"
-    colorContainer.style.marginBottom = "8px"
+    colorContainer.style.marginBottom = "4px"
     
     return colorContainer;
   },
