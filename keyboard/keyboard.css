@@ -20,6 +20,26 @@
   bottom: -100%;
 }
 
+.color-picker{
+  margin-left: 0.3rem;
+  /* border: none; */
+  border-radius: 10rem;
+  background-color: transparent;
+  cursor: pointer;
+  height: 22px;
+  width: 35px;
+  border-radius: 10rem;
+  color: white;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+
+.color-picker::-webkit-color-swatch{
+  border: 1.6px solid white;
+  border-radius: 5px;
+}
+
 .keyboard__keys {
   text-align: center;
 }
@@ -29,7 +49,7 @@
   height: 45px;
   width: 6%;
   margin: 3px;
-  border-radius: 10px;
+  border-radius: 5px;
   border: none;
   background: rgba(255, 255, 255, 0.2);
   font-size: 1.05rem;

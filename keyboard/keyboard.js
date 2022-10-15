@@ -52,8 +52,10 @@ const Keyboard = {
     const labelBackground = document.createElement("label");
     labelBackground.innerHTML = "BG Color: "
     inputBackground.id = "background-color-picker"
+    inputBackground.className = "color-picker"
     inputBackground.setAttribute("type","color");
     inputBackground.setAttribute("oninput", "handleKeyboardBG()")
+    inputBackground.setAttribute("value", "#E84545")
     backgroundColor.appendChild(labelBackground)
     backgroundColor.appendChild(inputBackground)
 
@@ -64,8 +66,10 @@ const Keyboard = {
     const labelKey = document.createElement("label");
     labelKey.innerHTML = "Key Color: "
     inputKey.id = "key-color-picker"
+    inputKey.className = "color-picker"
     inputKey.setAttribute("type","color");
     inputKey.setAttribute("oninput", "handleKeyboardKey()")
+    inputKey.setAttribute("value", "#2B2E4A")
     keyColor.appendChild(labelKey)
     keyColor.appendChild(inputKey)
 
