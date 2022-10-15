@@ -24,8 +24,10 @@ const Keyboard = {
     // Setup main elements
     this.elements.main.classList.add("keyboard", "keyboard--hidden");
     this.elements.keysContainer.classList.add("keyboard__keys");
+    this.elements.keysContainer.appendChild(this.createColorPicker())
     this.elements.keysContainer.appendChild(this._createKeys());
 
+    // Add node list to keys 
     this.elements.keys = this.elements.keysContainer.querySelectorAll(".keyboard__key");
     
     // Add to DOM
@@ -40,6 +42,40 @@ const Keyboard = {
         })
       })
     });
+  },
+  
+  createColorPicker(){
+    const colorContainer = document.createElement("div");
+
+    const backgroundColor = document.createElement("div");
+    const inputBackground = document.createElement("input");
+    const labelBackground = document.createElement("label");
+    labelBackground.innerHTML = "BG Color: "
+    inputBackground.id = "background-color-picker"
+    inputBackground.setAttribute("type","color");
+    inputBackground.setAttribute("oninput", "handleKeyboardBG()")
+    backgroundColor.appendChild(labelBackground)
+    backgroundColor.appendChild(inputBackground)
+
+    colorContainer.appendChild(backgroundColor)
+
+    const keyColor = document.createElement("div");
+    const inputKey = document.createElement("input");
+    const labelKey = document.createElement("label");
+    labelKey.innerHTML = "Key Color: "
+    inputKey.id = "key-color-picker"
+    inputKey.setAttribute("type","color");
+    inputKey.setAttribute("oninput", "handleKeyboardKey()")
+    keyColor.appendChild(labelKey)
+    keyColor.appendChild(inputKey)
+
+    colorContainer.appendChild(keyColor)
+
+    colorContainer.style.display = "flex"
+    colorContainer.style.justifyContent = "space-evenly"
+    colorContainer.style.marginBottom = "8px"
+    
+    return colorContainer;
   },
 
   _createKeys() {
@@ -65,10 +101,6 @@ const Keyboard = {
     const createIconHTML = (icon_name) => {
       return `<i class="material-icons">${icon_name}</i>`
     }
-
-    // Create audio
-    const audio = new Audio();
-    audio.src = "./mouseClick.mp3";
     
     keyLayout.forEach(key => {
       // console.log(keyLayout.indexOf(key))
@@ -275,6 +307,22 @@ const Keyboard = {
     this.elements.main.classList.add("keyboard--hidden")
   },
 };
+
+function handleKeyboardBG() {
+  const keyboard = Keyboard.elements.main;
+  const color = document.getElementById("background-color-picker").value;
+  keyboard.style.backgroundColor = color;
+}
+
+function handleKeyboardKey() {
+  const keys = document.getElementsByClassName("keyboard__key");
+  const keysArray = Array.from(keys)
+  const color = document.getElementById("key-color-picker").value;
+
+  keysArray.forEach(key => {
+    key.style.color = color;
+  });
+}
 
 window.addEventListener("DOMContentLoaded", function () {
   Keyboard.init();
