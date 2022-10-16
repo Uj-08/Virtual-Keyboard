@@ -145,7 +145,7 @@
   } */
 
   .keyboard__key--wide {
-    min-width: 25px;
+    min-width: 20px;
   }
 
   .caps{
